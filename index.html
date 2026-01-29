@@ -1,13 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>laboration2ecma</title>
+    <link rel="stylesheet" href="src/style.css">
+    
+    <title>Webbutveckling ramschema</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <section id="content">
+    <h1>Ramschema för Webbutveckling</h1>
+    <div class="search">
+      <label for="sök">Search:</label>
+      <input type="text" id="sök" name="sök" placeholder="Sök efter kurskod eller kursnamn">
+    </div>
+    <div id="table">
+      <div class="sorting">
+        <p class="sortCode">Kurskod</p>
+        <p class="sortName">Namn</p>
+        <p class="sortProg">Progression</p>
+      </div>
+    </div>
+    </section>
+    <script type="module" src="src/ecma.js"></script>
   </body>
 </html>
