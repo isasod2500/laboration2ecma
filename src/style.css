@@ -34,6 +34,12 @@ body {
   text-align: left;
 }
 
+.sortBtns {
+  display: flex;
+  justify-content: center;
+
+}
+
 .sorting {
   display: grid;
   text-align: left;
