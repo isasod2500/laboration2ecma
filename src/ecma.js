@@ -13,7 +13,9 @@ async function loadData() {
         console.table(courses)
         showCourses(courses)
         sortingButtons(courses)
-        search(courses)
+        document.querySelector("#sök").addEventListener("input", () => {
+            search(courses);
+        });
 
     } catch (error) {
         console.error(`fel: ${error}`)
@@ -23,7 +25,7 @@ async function loadData() {
 //Laddar in och visar kurser.
 async function showCourses(courses) {
     const tableEl = document.querySelector("#table")
-    tableEl.inneerHTML = "";
+    tableEl.innerHTML = "";
     courses.forEach(course => {
         tableEl.innerHTML += `
         <div class="courseRow">
@@ -142,5 +144,13 @@ function sortingButtons(courses) {
 }
 
 function search(courses) {
-    
-}
+
+        let searchQuery = document.querySelector("#sök").value;
+        let searchName = courses.filter((course) => course.coursename.toLowerCase().includes(searchQuery.toLowerCase()));
+        let searchCode = courses.filter((course) => course.code.toLowerCase().includes(searchQuery.toLowerCase()));
+        let searchProg = courses.filter((course) => course.progression.toLowerCase().includes(searchQuery.toLowerCase()));
+        showCourses(searchName);
+        showCourses(searchCode);
+        showCourses(searchProg);
+
+    }
