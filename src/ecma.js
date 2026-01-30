@@ -10,7 +10,6 @@ async function loadData() {
     try {
         const response = await fetch(url);
         const courses = await response.json();
-        console.table(courses)
         showCourses(courses)
         sortingButtons(courses)
         document.querySelector("#sök").addEventListener("input", () => {
