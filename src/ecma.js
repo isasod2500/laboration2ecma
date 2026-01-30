@@ -145,12 +145,13 @@ function sortingButtons(courses) {
 
 function search(courses) {
 
-        let searchQuery = document.querySelector("#sök").value;
+        let searchQuery = document.querySelector("#sök").value.toLowerCase();
         let searchName = courses.filter((course) => course.coursename.toLowerCase().includes(searchQuery.toLowerCase()));
         let searchCode = courses.filter((course) => course.code.toLowerCase().includes(searchQuery.toLowerCase()));
-        let searchProg = courses.filter((course) => course.progression.toLowerCase().includes(searchQuery.toLowerCase()));
-        showCourses(searchName);
-        showCourses(searchCode);
-        showCourses(searchProg);
-
+        if(searchName.length > 0 || searchCode.length > 0)
+        {   
+            let searchResult = [...searchName, ...searchCode];
+            showCourses(searchResult);
+        }
+   
     }
