@@ -1,5 +1,7 @@
 # Laboration 2 - ECMA - await, async, try, catch
 
+## https://laboration2ecma.netlify.app/
+
 I denna laboration ska vi skapa en webbplats som använder FetchAPI med async och await. Syftet är att lära sig skapa asynkrona funktioner aom kan vänta på att data har hämtats innan resterande funktioner börjar arbeta.
 Samt hur man kan hantera fel, att välja att stoppa programmet vid fel, eller fortsätta i fall felet som uppstod inte är allvarligt.
 
