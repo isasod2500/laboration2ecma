@@ -1,9 +1,9 @@
 "use strict";
-
+//Väntar på DOMContentloaded.
 document.addEventListener("DOMContentLoaded", async () => {
     loadData();
 })
-
+//Async funktion som hämtar API data och catchar fel om fel uppstår.
 async function loadData() {
     const url = "https://webbutveckling.miun.se/files/ramschema.json"
 
@@ -142,6 +142,7 @@ function sortingButtons(courses) {
     })
 }
 
+//Sökfunktion. Jag fick inte till sökning efter progression, så sökningen tar endast hänsyn till kursnamn och kurskod.
 function search(courses) {
 
         let searchQuery = document.querySelector("#sök").value.toLowerCase();
