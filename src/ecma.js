@@ -10,10 +10,11 @@ async function loadData() {
     try {
         const response = await fetch(url);
         const courses = await response.json();
-        console.table(courses)
         showCourses(courses)
         sortingButtons(courses)
-        search(courses)
+        document.querySelector("#sök").addEventListener("input", () => {
+            search(courses);
+        });
 
     } catch (error) {
         console.error(`fel: ${error}`)
@@ -23,7 +24,7 @@ async function loadData() {
 //Laddar in och visar kurser.
 async function showCourses(courses) {
     const tableEl = document.querySelector("#table")
-    tableEl.inneerHTML = "";
+    tableEl.innerHTML = "";
     courses.forEach(course => {
         tableEl.innerHTML += `
         <div class="courseRow">
@@ -142,5 +143,14 @@ function sortingButtons(courses) {
 }
 
 function search(courses) {
-    
-}
+
+        let searchQuery = document.querySelector("#sök").value.toLowerCase();
+        let searchName = courses.filter((course) => course.coursename.toLowerCase().includes(searchQuery.toLowerCase()));
+        let searchCode = courses.filter((course) => course.code.toLowerCase().includes(searchQuery.toLowerCase()));
+        if(searchName.length > 0 || searchCode.length > 0)
+        {   
+            let searchResult = [...searchName, ...searchCode];
+            showCourses(searchResult);
+        }
+   
+    }
